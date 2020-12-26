@@ -1,4 +1,4 @@
-#Basic Pick and Place Part 2
+# Basic Pick and Place Part 2
 http://manipulation.csail.mit.edu/pick.html
 
 review: 
