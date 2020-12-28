@@ -12,3 +12,11 @@ st： Vmin <= V && V <= Vmax
 joint limits: dont exceed joint limits in next h seconds
 qmin <= q + h * v && q + h * v <= qmax
 4. 这部分的 notebook 是可视化二项式规划 
+
+- null space of the jacobian 
+min | J_G(q) * v - V_G | ^2 + | P(q) ( v - k*(q0 -q))|
+st: Vmin <= V <= Vmax
+
+- differential IK Integrator
+min | J_G*v - V_G|^2
+st: J*v = a*V_G ;  0 <= a <= 1
