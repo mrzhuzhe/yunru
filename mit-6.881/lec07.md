@@ -36,3 +36,33 @@ other ways point clouds on messy
 - never same points twice
 - detecting outliers
 sum ｜ X_o * o_P_mi - P_si | ^2
+ponits with large distance on others
+
+- ransac (random sample consensus)
+在下采样后获取大部分都是线性点
+
+- 我们是否可以判定哪些点在旋转后是不变的
+Y： pairwise distances between points
+if dij is same points is dissimiler to all 
+dij in model points , then either i or  is a outlier or both
+
+max clique in graph of pairwise distances
+
+
+- generalizing correspondence
+
+min sum sum Cij * | X_o * P_mj - P_si | ^2
+Cij = {0,1} Ns * Nm
+
+coherent point drift (CPD)
+
+Cij = [0, 1] Ns * Nm
+probility of scene i corresponding to model j 
+
+Cij = 1 / ai * e ^ -1/2 * | Xp_mj * P_si / phi^2|
+
+MIP： mixed - integer program
+SDP： relaxtion semi-definite program
+
+
+
