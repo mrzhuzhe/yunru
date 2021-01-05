@@ -4,6 +4,12 @@ mainline
 
 - representation: 
 对应 mls94 第二章
+
+注意一个问题：镜头frame到实际frame的转换
+补充：四元数可视化 https://eater.net/quaternions
+https://drake.mit.edu/
+binder notebook
+
 1. rotation matrix, quatern, axis angle. roll pitch (aka euler angler)
 2. pose: position & oritation of a frame  
 3. rotation multipy, frame adding

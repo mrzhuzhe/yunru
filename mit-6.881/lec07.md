@@ -1,5 +1,10 @@
 # Geometric Perception
 
+ICP 就是 NN算法 用kd树做的  nn算法天然就有很多处理outliner的法子吧
+物体分割库 labelfusion http://labelfusion.csail.mit.edu/
+
+广义对应关系，软对应关系
+
 - robust version of messy point clouds
 - review : Robust Point Cloud Regastration
 as Least-squares IK

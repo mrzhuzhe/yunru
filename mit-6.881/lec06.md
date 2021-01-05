@@ -1,6 +1,13 @@
 # geometric perception
+
+http://www.open3d.org/  open3d
+https://pointclouds.org/ 点云库
+https://www.geogebra.org/3d/pn628maw 3d计算器
+https://github.com/mariusmuja/flann 快速近邻
+
 - https://www.youtube.com/watch?v=YQYMKQUAEAw
 - geometry sensor 
+
 1. lidar / time of flights : 
 velodyne spinning lidar 激光旋转雷达
 hokuyo scanning lidar 北洋扫描激光雷达
