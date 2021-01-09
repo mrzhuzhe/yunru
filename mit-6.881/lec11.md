@@ -18,6 +18,8 @@ Pretraining on Imagenet / COCO
 
 - 这一部分讲了图像分割，卷积等的基本概念和例子，体现特征分层和网络容量的概念
 
+labelfusion: http://labelfusion.csail.mit.edu/
+
 bounding box refinement
 region proposal network
 
@@ -29,6 +31,8 @@ crop point cloud , Easier Registration
 
 Antipodal grasps , etc
 from cropped point cloud
+
+演示：https://colab.research.google.com/github/RussTedrake/manipulation/blob/master/segmentation_inference.ipynb#scrollTo=zBNqFb68td8N
 
 - others
 The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks

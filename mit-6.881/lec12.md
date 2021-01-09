@@ -1,5 +1,10 @@
 # Force Control 
 
+iiwa上的具体实现
+https://frankaemika.github.io/docs/overview.html
+混合力度控制
+https://colab.research.google.com/github/RussTedrake/manipulation/blob/master/exercises/force/hybrid_force_position.ipynb#scrollTo=7FZmK21O-JI_
+
 - geometric coefficient friction:
 manever: flip box off
 
