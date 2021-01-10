@@ -2,6 +2,7 @@
 
 视觉生成：https://sim2real.github.io/
 http://manipulation.csail.mit.edu/segmentation.html
+ppt: https://slides.com/russtedrake/fall20-lec11
 
 - Learning is foundamental way to bring in data / statistics
 

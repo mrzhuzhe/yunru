@@ -1,6 +1,9 @@
 # Force Control 2
 
 TD learning
+多种控制方式的不同的演示:
+https://slides.com/russtedrake/fall20-lec13#/12
+
 
 - colab 演示
 flip a box

@@ -1,5 +1,9 @@
 # Category-level Manipulation
 
+3d创建：https://slides.com/russtedrake/fall20-lec14#/10
+3d创建和分割：https://slides.com/russtedrake/fall20-lec14#/18
+迁移学习：https://slides.com/russtedrake/fall20-lec14#/33
+
 
 这一课只有ppt，没有文档
 ppt里有一大堆论文可看

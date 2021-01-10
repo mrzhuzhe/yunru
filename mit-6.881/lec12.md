@@ -2,7 +2,10 @@
 
 iiwa上的具体实现
 https://frankaemika.github.io/docs/overview.html
-混合力度控制
+翻转：
+https://colab.research.google.com/github/RussTedrake/manipulation/blob/master/force.ipynb#scrollTo=eeMrMI0-1Dhu
+
+混合力度控制：（用问题）
 https://colab.research.google.com/github/RussTedrake/manipulation/blob/master/exercises/force/hybrid_force_position.ipynb#scrollTo=7FZmK21O-JI_
 
 - geometric coefficient friction:
