@@ -1,5 +1,8 @@
 Motion Planning 1
 
+ppt：https://slides.com/russtedrake/fall20-lec15#/10
+运动规划（完成度很低）：http://manipulation.csail.mit.edu/trajectories.htmlß
+
 - motivation
 bump into
 avoid collision
@@ -95,6 +98,19 @@ t0 t1 t2 ... tn
 two common choices for q(t)
 Piecewise Polynomials : q(t) = sum alphai(t -t_k)^i
 
+often cubiz polynomial
 
+Piecewise Polynomials:
+B-splines: 
 
+position / velocity / torque / mass  / dynamics limit constraints
 
+- key-points only needs for perception systems
+
+- question
+1. dynamic or torque optimizaion faster in practice：
+增加动量和阻尼限制对最优化器运行时间影响并不大
+
+2. 如果违反了torque或者加速度限制会怎么办
+
+3. 解的存在与否
