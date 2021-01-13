@@ -1,5 +1,10 @@
 # Motion Planning 2
 
+slides: https://slides.com/russtedrake/fall20-lec16/
+
+trajectory: https://colab.research.google.com/github/RussTedrake/manipulation/blob/master/trajectories.ipynb
+
+
 - IK 的 collab 演示
 增加一个柱子 non-linear constraints
 竖着的 横着的
@@ -21,6 +26,8 @@ Alrernative : Sample - based motion planning
 
 这里提供了好几篇论文 nancy amato
 
+见ppt第三页
+
 - 这里给了ik的几何流形表示但是我完全没看懂
 
 - rapidly-exploring random trees （RRTs）
@@ -38,3 +45,46 @@ go back and fill small region
 google: drake + ompl 
 
 - What is the sample space q ?
+
+q = [qrobot, qobj]
+
+in trajectory optimization
+
+min |qrobot - qrobot_desired|^2
+s.t: IK(q[i])
+G^X^o = c i in [5, 15]
+
+
+- sample-based 
+vs trajectory optimization + only require boolen collision checking 
+vs distances (SDF) + gradients + dont have to predetermine # of points on trajectory or the connectivity
+
+ppt 第 4/5 页
+
+- each IK problem is independent
+
+Principle of robot motion: theory algorithems and implementation
+
+sample-base with optimization 
+
+```
++ probabilistic completeness
+ if a trajectory exists, I will eventually find it
+
+- dont know when infeasible + can combine heuristics , optimization for sampling ,etc to improve performace
+
+- scaling
+- need post-proccessing
++ multi-query
++ optimizing planners ( RRT / PRM )
+
+```
+
+- soft skin
+ppt 16页 
+
+
+- reducing reliance on collision-free planning with contact-awre control
+
+- question:
+initial tree
