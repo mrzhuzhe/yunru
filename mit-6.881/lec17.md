@@ -96,3 +96,15 @@ u - p_theta(u) neural network + gaussian
 
 phi E[g(u)] / phi theta = E [g(u) * phi log(P_theta(u))]    gradient of log probability
 
+high variance reduces sample efficiency
+
+variance reduction strategies : 
+
+1. use a critiz estimate of expected cost 
+2. variable in real situation rather than simulate
+3. use replay
+
+- question
+
+1. rl 参数过多 过拟合的问题
+2. rl 用大量参数 来表征 policy 
