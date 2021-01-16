@@ -1,15 +1,22 @@
 # Reinforcement Learning 1
 
-只有slides: https://slides.com/russtedrake/fall20-lec17
 
-- learning dexterity
+> slides: https://slides.com/russtedrake/fall20-lec17
+
+> 文档： http://manipulation.csail.mit.edu/rl.html
+
+> 非确定性机器人文档：http://underactuated.csail.mit.edu/rl_policy_search.html 
+
+> notebook: https://colab.research.google.com/github/RussTedrake/manipulation/blob/master/exercises/rl/stochastic_optimization.ipynb
+
+## learning dexterity
 1. make the simulator
 2. write cost function
 3. deep policy gradient
 
 from plans to policies
 
-- Model predictive control (MPC)
+## Model predictive control (MPC)
 
 measure current x[n]
 
@@ -19,49 +26,51 @@ excecute u[n]
 
 throw away and replan at n + 1
 
-- full-state-feedback:
+## full-state-feedback:
 
 u -> Plant MBP - y -> state Estimator (or cheat parts pose estimate) - x^ -> Full-stack Feedback (RRT MPC) -> u
 
-- output-feedback:
+## output-feedback:
 
 u -> Plant - y -> Control(PI) -> Diff IK -> u
 
 pixels-to-torques
 
-- Optimal feedback Control: fint u = PI(y)
+## Optimal feedback Control: fint u = PI(y)
 
 reinforcement Learning: model-free (no plant model required)
 
 
-- whether search for policy or whether search for q function
+## whether search for policy or whether search for q function
 
 policy search in RL
 u = PI_theta(y) eg. deep net
 
 opportunity to use latent representations from perceptron 
 
-- 跳跃机器人
+## 跳跃机器人
 http://www.ai.mit.edu/projects/leglab/robots/robots.html
 
-- visuomotor policies
+## visuomotor policies
 
 levine finn JMLR 2016
+
+https://slides.com/russtedrake/fall20-lec17#/9
 
 boundary of model free
 
 
-- how do we define our objective ?
+## how do we define our objective ?
 g(x_0 , theta) simulation function that outputs cost / reward = ( deley params, initial conditions )
 
 over initial condition , simulation params, noise / disturbances
 
-- openai baseline
+## openai baseline
 
 domain randomization 
 
 
-- how do we optimize that objective
+## how do we optimize that objective
 two cases that we really understand
 1. tabular markov decision proccess (MDP), 只有一小部分离散的状态，action，离散时间 policy iteration
 2. linear gaussian ( e.g quadratic cost )
@@ -79,7 +88,7 @@ if "differentiable simulator"
 
 differentiable physics: differentiable rendering is still hard
 
-- true gradient
+## true gradient
 1. monte carlo for E[] + true sim gradients
 2. policy gradient RL (use gradient for policy but assume no plant model)
 3. black-box optimization: toolbox: nevergrad(FAIR) 
@@ -104,7 +113,7 @@ variance reduction strategies :
 2. variable in real situation rather than simulate
 3. use replay
 
-- question
+## question
 
 1. rl 参数过多 过拟合的问题
 2. rl 用大量参数 来表征 policy 

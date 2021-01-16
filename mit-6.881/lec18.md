@@ -1,7 +1,8 @@
 # Reinforcement Learning 2
 
-## slides 
-https://slides.com/russtedrake/fall20-lec18
+> slides https://slides.com/russtedrake/fall20-lec18
+
+>https://openai.com/blog/openai-baselines-ppo/
 
 ## Policy gradient approaches to RL
 
