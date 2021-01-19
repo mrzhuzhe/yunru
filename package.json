@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mrzhuzhe/yunru/issues"
   },
-  "homepage": "https://github.com/mrzhuzhe/yunru#readme"
+  "homepage": "https://github.com/mrzhuzhe/yunru#readme",
+  "dependencies": {
+    "node-librealsense": "^0.2130.0"
+  }
 }
