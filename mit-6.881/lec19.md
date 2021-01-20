@@ -56,4 +56,44 @@ M(q) * v' + C(q, v) * v = Tao_q(q) + u + damping ...
 
 v' = m^-1(q) * [u + Tap_q(q) - C]
 
+Parameters of a Rigid Body "spatial" intertia
+
+m Pcom Ixx Iyy Izz, Ixy, Iyz, Izz
+
+not all values will define a physically plausible inertia matrix
+
+Patrick Wensing has a paper on LMI formulations 
+
+Biggest problem is assuming clean q''
+
+Alternative formulations
+
+add a low pass  filter to both sides of the eq
+
+constraints in terms of energy / power 
+
+Tao^T = dE / dl Gets rid of q''
+
+"power formulation"
+
+Equation error vs simulation error.
+
+Residual models in least-squates parameters estimation
+
+M(q) * v' + C(q, v) * v = Taog(q) + u + a^T * f(q, q', ...)
+
+# Adaptive control
+
+model reference adaptive control (MRAC) vs just online parameter estimation 
+
+track trajectory and estimate params as necessary vs explict estimate params then use in control
+
+Ex: Double integrator 
+
+m * q'' = u
+
+param est m_hat = min integrate(mq'' - u)^2 * dt
+
+online versions of this recursive least squares
+
 
