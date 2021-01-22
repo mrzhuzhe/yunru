@@ -22,6 +22,8 @@ Gripper proprioception/ slip sensing/ contact pressure sensing/ force sensing/ g
 
 # 2. camera based tactile sensors
 
+用视觉来度量接触点的形变
+
 # 3. object classification
 
 通过触觉信息进行分类 演示在 41:43
