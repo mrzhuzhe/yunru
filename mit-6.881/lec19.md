@@ -97,3 +97,14 @@ param est m_hat = min integrate(mq'' - u)^2 * dt
 online versions of this recursive least squares
 
 
+MRAC give refernce trajectory qd(t) 
+
+ctritically damped PD gains 
+
+m' = -r * q'' * s    s = q'' + n 8 q'
+
+gurantees tracing
+
+v - 1/2*m*s^2 + 1/2phi * m^2
+
+
