@@ -2,7 +2,7 @@
 
 > slides https://slides.com/russtedrake/fall20-lec18
 
->https://openai.com/blog/openai-baselines-ppo/
+> https://openai.com/blog/openai-baselines-ppo/
 
 ## Policy gradient approaches to RL
 
