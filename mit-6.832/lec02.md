@@ -58,3 +58,30 @@ The Autapse: a simple illustration of short-term analog memory storage by tuned 
 忘记门：x' = (f-1) * x + tanh(w * x + u)
 
 ## Tracking fixed points "biforcation analysis"
+
+x = [theta, theta']
+
+x' = f(x) = [theta', theta'']
+
+这里有微分方程的图形
+
+homo clinc orbit
+
+稳态
+
+marginally stable: stable in the sense of lyapunov (i, s, l) 
+
+A fixed pt x^asterik is stable in the sense of lyapunov (i, s, l) 
+
+if for any e > 0  has a ro > 0 s.t || x(0) - x^asterik  ||^2 < ro 
+
+then has t > 0 || x(t) - x^asterik  ||^2 < e
+
+Asymptotically stable if || x(0) - x^asterik  || < e
+
+lim t-> inf ||  x(t) - x^asterik  || = 0
+
+Exponential Stability  ||  x(t) - x^asterik  || <= C * e^( - u * t) ,  C > 0
+
+
+
