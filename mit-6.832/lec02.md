@@ -58,3 +58,8 @@ The Autapse: a simple illustration of short-term analog memory storage by tuned 
 忘记门：x' = (f-1) * x + tanh(w * x + u)
 
 ## Tracking fixed points "biforcation analysis"
+
+x' = - x + tanh( w * x )
+
+
+
