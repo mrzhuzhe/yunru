@@ -63,13 +63,13 @@ aabb = chair.get_axis_aligned_bounding_box()
 aabb.color = (1, 0, 0)
 obb = chair.get_oriented_bounding_box()
 obb.color = (0, 1, 0)
-"""
+#"""
 o3d.visualization.draw_geometries([pcd, aabb, obb],
                                   zoom=0.7,
                                   front=[0.5439, -0.2333, -0.8060],
                                   lookat=[2.4615, 2.1331, 1.338],
                                   up=[-0.1781, -0.9708, 0.1608])
-"""
+#"""
 
 """
 hull, _ = chair.compute_convex_hull()
@@ -79,10 +79,11 @@ o3d.visualization.draw_geometries([hull_ls, chair])
 """
 
 #   聚类
+"""
 with o3d.utility.VerbosityContextManager(
         o3d.utility.VerbosityLevel.Debug) as cm:
     labels = np.array(
-        pcd.cluster_dbscan(eps=1, min_points=10, print_progress=True))
+        pcd.cluster_dbscan(eps=0.02, min_points=10, print_progress=True))
 
 max_label = labels.max()
 print(f"point cloud has {max_label + 1} clusters")
@@ -94,6 +95,7 @@ o3d.visualization.draw_geometries([pcd],
                                   front=[-0.4999, -0.1659, -0.8499],
                                   lookat=[2.1813, 2.0619, 2.0999],
                                   up=[0.1204, -0.9852, 0.1215])
+"""
 
 """
 # 分割
@@ -106,16 +108,16 @@ print(f"Plane equation: {a:.2f}x + {b:.2f}y + {c:.2f}z + {d:.2f} = 0")
 inlier_cloud = pcd.select_by_index(inliers)
 inlier_cloud.paint_uniform_color([1.0, 0, 0])
 outlier_cloud = pcd.select_by_index(inliers, invert=True)
-"""
 
-"""
+
+
 o3d.visualization.draw_geometries([inlier_cloud, outlier_cloud],
                                   zoom=0.8,
                                   front=[-0.4999, -0.1659, -0.8499],
                                   lookat=[2.1813, 2.0619, 2.0999],
                                   up=[0.1204, -0.9852, 0.1215])
-"""
 
+"""
 
 # 移除不可见点
 """

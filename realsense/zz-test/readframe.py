@@ -2,6 +2,16 @@
 
 import open3d as o3d
 import matplotlib.pyplot as plt
+import numpy as np
+import copy
+
+mesh = o3d.geometry.TriangleMesh.create_coordinate_frame()
+mesh_tx = copy.deepcopy(mesh).translate((1.3, 0, 0))
+mesh_ty = copy.deepcopy(mesh).translate((0, 1.3, 0))
+print(f'Center of mesh: {mesh.get_center()}')
+print(f'Center of mesh tx: {mesh_tx.get_center()}')
+print(f'Center of mesh ty: {mesh_ty.get_center()}')
+
 
 print("Read Redwood dataset")
 color_raw = o3d.io.read_image("./frames/color/00017.jpg")
@@ -26,8 +36,31 @@ pcd = o3d.geometry.PointCloud.create_from_rgbd_image(
         o3d.camera.PinholeCameraIntrinsicParameters.PrimeSenseDefault))
 # Flip it, otherwise the pointcloud will be upside down
 #pcd.transform([[1, 0, 0, 0], [0, -1, 0, 0], [0, 0, -1, 0], [0, 0, 0, 1]])
-o3d.visualization.draw_geometries([pcd], zoom=0.5,
+
+
+# 点云太多了 需要下采样
+#print("Downsample the point cloud with a voxel of 0.05")
+downpcd = pcd.voxel_down_sample(voxel_size=0.01)
+
+# 估计法向量
+downpcd.estimate_normals(
+    search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+
+"""
+o3d.visualization.draw_geometries([downpcd], zoom=0.5,
                                 front=[-1, -1, -1],
                                 lookat=[0, 0, 0],
-                                up=[-0.0694, -1, 0.2024]
+                                up=[-0.0694, -1, 0.2024],
+                                point_show_normal=True
                                 )
+"""
+
+radii = [0.005, 0.01, 0.02, 0.04]
+rec_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(downpcd, o3d.utility.DoubleVector(radii))
+o3d.visualization.draw_geometries([ 
+    downpcd,
+    rec_mesh, 
+    #mesh, mesh_tx, mesh_ty
+    ],
+    #point_show_normal=True
+    )
