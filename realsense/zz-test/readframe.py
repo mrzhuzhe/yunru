@@ -43,8 +43,7 @@ pcd = o3d.geometry.PointCloud.create_from_rgbd_image(
 downpcd = pcd.voxel_down_sample(voxel_size=0.01)
 
 # 估计法向量
-downpcd.estimate_normals(
-    search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+#downpcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
 
 """
 o3d.visualization.draw_geometries([downpcd], zoom=0.5,
@@ -56,10 +55,11 @@ o3d.visualization.draw_geometries([downpcd], zoom=0.5,
 """
 
 radii = [0.005, 0.01, 0.02, 0.04]
-rec_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(downpcd, o3d.utility.DoubleVector(radii))
+#rec_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(downpcd, o3d.utility.DoubleVector(radii))
 o3d.visualization.draw_geometries([ 
-    downpcd,
-    rec_mesh, 
+    #downpcd,
+    pcd
+    #rec_mesh, 
     #mesh, mesh_tx, mesh_ty
     ],
     #point_show_normal=True
