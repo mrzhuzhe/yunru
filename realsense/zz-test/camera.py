@@ -6,7 +6,7 @@ import json
 o3d.t.io.RealSenseSensor.list_devices()
 
 config_filename = "camera_config.json"
-bag_filename = "zz_test.bag"
+bag_filename = "zz_test_panda.bag"
 
 with open(config_filename) as cf:
     rs_cfg = o3d.t.io.RealSenseSensorConfig(json.load(cf))
