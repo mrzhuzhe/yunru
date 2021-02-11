@@ -40,6 +40,11 @@ inv -> pinv
 3. 在 rgbd合并中为何要保存轨迹？轨迹从哪来？相机固有属性instrict.json么？
 4. 拼合icp时可以可视化拼合过程
 
+- reconstruction
+1. 批处理和子进程是解决了
+2. python run_system.py config/realsense.json --integrate --debug_mode 这个命令还是不能正确执行
+3. opencv 没有试
+
 - tensor
 1. cuda 设置？？？？？
 
