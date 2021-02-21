@@ -2,9 +2,7 @@ node_modules
 .DS_Store
 realsense/zz-test/frames
 realsense/test_data
-realsense/zz-test/zz_test.bag
 realsense/zz-test/panda/frames
 realsense/zz-test/zz_test_panda.bag
 *.pyc
-realsense/reconstruction_system/zz_test_panda.bag
-realsense/reconstruction_system/zz_test_panda/
+realsense/zz-test/zz_test_panda/

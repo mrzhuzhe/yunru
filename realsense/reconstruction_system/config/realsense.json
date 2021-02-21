@@ -1,6 +1,6 @@
 {
     "name": "Realsense bag file",
-    "path_dataset": "zz_test_panda.bag",
+    "path_dataset": "../zz-test/zz_test_panda.bag",
     "max_depth": 3.0,
     "voxel_size": 0.05,
     "max_depth_diff": 0.07,
