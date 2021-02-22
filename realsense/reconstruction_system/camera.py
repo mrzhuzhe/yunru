@@ -1,3 +1,7 @@
+"""
+ 有个大bug cv.imgShow 窗口不前置
+
+"""
 import open3d as o3d
 import numpy as np
 import matplotlib.pyplot as plt

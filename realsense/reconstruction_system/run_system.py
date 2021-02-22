@@ -9,12 +9,31 @@ import argparse
 import time
 import datetime
 import sys
-from os.path import isfile
+from os.path import isfile, join, splitext, dirname, basename
 from initialize_config import initialize_config
 import open3d as o3d
 sys.path.append("../utility")
-from file import check_folder_structure
+from file import check_folder_structure, make_clean_folder
 sys.path.append(".")
+
+def resetBagFiles(config, args):
+    if args.reset_files:
+        # 删除三个文件
+        _dpath = join(dirname(config["path_dataset"]),
+                         basename(splitext(config["path_dataset"])[0]))
+        """
+        filelist = [
+            join(_dpath, "color/"),
+            join(_dpath, "depth/"),
+            join(_dpath, "intrinsic.json")
+        ]
+        print(filelist)
+        for i in filelist:
+            make_clean_folder(i)
+        """
+        make_clean_folder(_dpath)
+
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Reconstruction system")
@@ -36,6 +55,11 @@ if __name__ == "__main__":
     parser.add_argument("--debug_mode",
                         help="turn on debug mode",
                         action="store_true")
+
+    parser.add_argument("--reset_files",
+                        help="reset bag files",
+                        action="store_true")
+
     args = parser.parse_args()
 
     if not args.make and \
@@ -49,6 +73,7 @@ if __name__ == "__main__":
     if args.config is not None:
         with open(args.config) as json_file:
             config = json.load(json_file)
+            resetBagFiles(config, args)
             initialize_config(config)
             check_folder_structure(config["path_dataset"])
     assert config is not None
