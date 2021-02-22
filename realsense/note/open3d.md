@@ -35,7 +35,7 @@
 1. 强健icp抑制离群点
 2. 多路合并重点看一下，这个真的不需要对齐么？ 为什么不需要对齐？ 
 官方提到的reconstruct例子里做了batch 重点看看
-inv -> pinv
+inv -> inv
 
 3. 在 rgbd合并中为何要保存轨迹？轨迹从哪来？相机固有属性instrict.json么？
 4. 拼合icp时可以可视化拼合过程
@@ -44,9 +44,15 @@ inv -> pinv
 1. 批处理和子进程是解决了
 2. 
 python run_system.py config/realsense.json --make --debug_mode 
+
+可选参数清除所有项目缓存文件：python run_system.py config/realsense.json --make --debug_mode --reset_files
+
 python run_system.py config/realsense.json --register --debug_mode 
+
 python run_system.py config/realsense.json --refine --debug_mode 
+
 python run_system.py config/realsense.json --integrate --debug_mode 
+
 这个命令还是不能正确执行
 3. opencv 没有试
 
@@ -57,3 +63,20 @@ python run_system.py config/realsense.json --integrate --debug_mode
 1. 物体匹配
 2. 点云合并
 3. 实时
+
+## open3d 重建的流程图
+问题不是 inv -> pinv 
+而是 np.dot 在mac 下开启多线程会报错 Intel MKL ERROR: Parameter 8 was incorrect on entry to DGEMM
+
+奇异矩阵无法求逆会报错：
+inv 改成伪逆 pinv 问题不是 inv -> pinv！！！
+而是 np.dot 和 np.inv 在mac 下开启多线程会报错 Intel MKL ERROR: Parameter 8 was incorrect on entry to DGEMM
+`原因是因为mac下anaconda预装的numpy版本错误导致，卸载numpy重装即可`
+
+
+第一步：合并帧，每个框架减少到15帧，和相机设置里每秒十五帧对齐
+第二步：获取帧与帧之间的姿态
+第三步：用彩色帧优化轨迹拼合 防止漂移
+第四步：合并成mesh
+
+详情：https://www.yuque.com/ubvfdh/fzgpdd/fixtq4

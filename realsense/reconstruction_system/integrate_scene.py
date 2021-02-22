@@ -42,9 +42,10 @@ def scalable_integrate_rgb_frames(path_dataset, intrinsic, config):
                  len(pose_graph_rgbd.nodes)))
             rgbd = read_rgbd_image(color_files[frame_id_abs],
                                    depth_files[frame_id_abs], False, config)
+            # pose_graph_fragment.nodes[fragment_id].pose 为 全 0 矩阵
             pose = np.dot(pose_graph_fragment.nodes[fragment_id].pose,
                           pose_graph_rgbd.nodes[frame_id].pose)
-            volume.integrate(rgbd, intrinsic, np.linalg.pinv(pose))
+            volume.integrate(rgbd, intrinsic, np.linalg.inv(pose))
             poses.append(pose)
 
     mesh = volume.extract_triangle_mesh()

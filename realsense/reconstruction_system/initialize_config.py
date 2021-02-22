@@ -19,7 +19,7 @@ def initialize_config(config):
 
     # set default parameters if not specified
     set_default_value(config, "depth_map_type", "redwood")
-    set_default_value(config, "n_frames_per_fragment", 100)
+    set_default_value(config, "n_frames_per_fragment", 15)
     set_default_value(config, "n_keyframes_per_n_frame", 5)
     set_default_value(config, "min_depth", 0.3)
     set_default_value(config, "max_depth", 3.0)

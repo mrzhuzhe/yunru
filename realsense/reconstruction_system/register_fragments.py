@@ -88,8 +88,10 @@ def compute_initial_registration(s, t, source_down, target_down, source_fpfh,
 def update_posegraph_for_scene(s, t, transformation, information, odometry,
                                pose_graph):
     if t == s + 1:  # odometry case
+        # mkl 问题复现 print("transformation----", transformation, odometry)
         odometry = np.dot(transformation, odometry)
-        odometry_inv = np.linalg.pinv(odometry)
+        # mkl 问题复现 print("transformation- e ---", odometry)
+        odometry_inv = np.linalg.inv(odometry)
         pose_graph.nodes.append(
             o3d.pipelines.registration.PoseGraphNode(odometry_inv))
         pose_graph.edges.append(
@@ -142,7 +144,6 @@ def make_posegraph_for_scene(ply_file_names, config):
     pose_graph = o3d.pipelines.registration.PoseGraph()
     odometry = np.identity(4)
     pose_graph.nodes.append(o3d.pipelines.registration.PoseGraphNode(odometry))
-
     n_files = len(ply_file_names)
     matching_results = {}
     for s in range(n_files):

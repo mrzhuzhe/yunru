@@ -60,7 +60,7 @@ def full_registration(pcds, max_correspondence_distance_coarse,
                 odometry = np.dot(transformation_icp, odometry)
                 pose_graph.nodes.append(
                     o3d.pipelines.registration.PoseGraphNode(
-                        np.linalg.pinv(odometry)))
+                        np.linalg.inv(odometry)))
                 pose_graph.edges.append(
                     o3d.pipelines.registration.PoseGraphEdge(source_id,
                                                              target_id,
