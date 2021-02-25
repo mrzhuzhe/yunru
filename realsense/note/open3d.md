@@ -51,7 +51,7 @@ python run_system.py config/realsense.json --register --debug_mode
 
 python run_system.py config/realsense.json --refine --debug_mode 
 
-python run_system.py config/realsense.json --integrate --debug_mode 
+pythonw run_system.py config/realsense.json --integrate --debug_mode 
 
 这个命令还是不能正确执行
 3. opencv 没有试
