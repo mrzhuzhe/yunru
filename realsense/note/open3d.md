@@ -24,6 +24,7 @@
 - 可视化
 1. 图片visualizer 中的角度不对
 2. 广义变化  旋转矩阵 transform
+3. 似乎缺少glfw依赖，需要生成一下requirement.txt
 
 - 数据结构
 1. 点云可以转为kd树的结构存储
@@ -45,11 +46,11 @@ inv -> inv
 2. 
 python run_system.py config/realsense.json --make --debug_mode 
 
-可选参数清除所有项目缓存文件：python run_system.py config/realsense.json --make --debug_mode --reset_files
+可选参数清除所有项目缓存文件：pythonw run_system.py config/realsense.json --make --debug_mode --reset_files
 
-python run_system.py config/realsense.json --register --debug_mode 
+pythonw run_system.py config/realsense.json --register --debug_mode 
 
-python run_system.py config/realsense.json --refine --debug_mode 
+pythonw run_system.py config/realsense.json --refine --debug_mode 
 
 pythonw run_system.py config/realsense.json --integrate --debug_mode 
 
