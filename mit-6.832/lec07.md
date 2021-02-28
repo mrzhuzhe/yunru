@@ -12,7 +12,7 @@ non collocated PFL for cart-pole system
 
 applied nonlinear control 
 
-我觉得这块不看书光看视频基本上是在浪费时间
+稍等一下明天补充
 
 
 
