@@ -1,6 +1,21 @@
 # Graphical analysis & Goal Build intuition
 
 > 书 nonlinear Dynamics and chaos - steven H strongatz
+> notes: http://underactuated.csail.mit.edu/pend.html 被拆成了2-6课
+
+1. 这一部分主要讲的是如何将动力系统用矩阵微分方程 q q‘ q'' u t 来表示， 
+其中 q 是设置向量  q’ 是速度 q'' 是加速度 u 是控制向量 u' 
+这种系统也有时变的版本，用这种方式表示主要是为了方便得出 u 和 u'， q 和 q‘之间的关系
+
+当方程中没有不清楚的量时为线性系统时，结果可以直接接出
+
+2. 稳定就是一阶倒数为0时 
+局部稳定指在一定范围内运动不会超出范围
+局部吸引指在一定范围中 随着时间逐步被吸引上一点（这里可以玩notbook中的例子）
+指数局部稳，指指数时间内局部稳定
+重点在于分析 u 和稳定情况间的关系，采取何种u’ 可以让 q‘ q''稳定
+
+
 
 ## simple Pendulum 悬垂钟摆
 
