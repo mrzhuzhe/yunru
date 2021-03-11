@@ -1,3 +1,5 @@
+#  测试open3d的tensor计算模块
+
 import open3d.core as o3c
 import numpy as np
 

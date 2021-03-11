@@ -1,4 +1,4 @@
-# 为什么要逐帧读，
+# 用来读取单独一帧来调试
 
 import open3d as o3d
 import matplotlib.pyplot as plt
@@ -14,8 +14,8 @@ print(f'Center of mesh ty: {mesh_ty.get_center()}')
 
 
 print("Read Redwood dataset")
-color_raw = o3d.io.read_image("./frames/color/00017.jpg")
-depth_raw = o3d.io.read_image("./frames/depth/00017.png")
+color_raw = o3d.io.read_image("./zz_test_panda/color/00017.jpg")
+depth_raw = o3d.io.read_image("./zz_test_panda/depth/00017.png")
 rgbd_image = o3d.geometry.RGBDImage.create_from_color_and_depth(
     color_raw, depth_raw)
 print(rgbd_image)
@@ -62,5 +62,8 @@ o3d.visualization.draw_geometries([
     #rec_mesh, 
     #mesh, mesh_tx, mesh_ty
     ],
-    #point_show_normal=True
+    front = [ 0.16656991818720754, 0.19508326294033895, -0.96653866082824524 ],
+    lookat = [ -0.05104928070021364, -0.36317995086867577, 1.8474828417562952 ],
+    up = [ -0.026059428944545732, -0.97901950138666249, -0.20209334988488648 ],
+    zoom = 0.64799999999999991
     )

@@ -10,8 +10,8 @@ import cv2
 
 o3d.t.io.RealSenseSensor.list_devices()
 
-config_filename = "../zz-test/camera_config.json"
-bag_filename = "../zz-test/zz_test_panda.bag"
+config_filename = "../manual/camera_config.json"
+bag_filename = "../manual/zz_test_panda.bag"
 
 with open(config_filename) as cf:
     rs_cfg = o3d.t.io.RealSenseSensorConfig(json.load(cf))

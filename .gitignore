@@ -6,3 +6,5 @@ realsense/zz-test/panda/frames
 realsense/zz-test/zz_test_panda.bag
 *.pyc
 realsense/zz-test/zz_test_panda/
+realsense/manual/zz_test_panda.bag
+realsense/manual/zz_test_panda/
