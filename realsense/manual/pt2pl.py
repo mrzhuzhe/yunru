@@ -4,10 +4,13 @@ import matplotlib.pyplot as plt
 
 sourcePath="./zz_test_panda/scene/integrated.ply"
 tatgetPath="./zz_test_panda/scene/cropped_1.ply"
+singleframePath="./zz_test_panda/scene/singleframe.ply"
 
 # 加载点云
 print("Load a ply point cloud, print it, and render it")
-pcd = o3d.io.read_point_cloud(tatgetPath)
+#pcd = o3d.io.read_point_cloud(sourcePath)
+#pcd = o3d.io.read_point_cloud(tatgetPath)
+pcd = o3d.io.read_point_cloud(singleframePath)
 
 # 分割
 plane_model, inliers = pcd.segment_plane(distance_threshold=0.01,

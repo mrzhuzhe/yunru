@@ -67,3 +67,4 @@ o3d.visualization.draw_geometries([
     up = [ -0.026059428944545732, -0.97901950138666249, -0.20209334988488648 ],
     zoom = 0.64799999999999991
     )
+o3d.io.write_point_cloud("./zz_test_panda/scene/singleframe.ply", pcd)
