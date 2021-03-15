@@ -1,5 +1,16 @@
 #   在预先就应该去除噪声
 #   需要相机校准
+"""
+整体流程
+
+1. 照片变为黑色
+2. 卷积或者同形去噪（未成功）
+3. mask去噪声（未成功）
+4. 阀值取颜色区间
+5. 对所有等高线依次处理，过滤调极小的方块，只输出需要的方块
+
+"""
+
 
 import numpy as np
 import cv2 as cv
@@ -74,19 +85,34 @@ print( M )
 
 # Iterate through each contour
 result = []          ## 空列表
+centerPoints = []
 for c in contours:
     x,y,w,h = cv.boundingRect(c)
+    #   过滤不合适的小点
     if (w > 100):
-        #cv.rectangle(imgray, (x, y), (x+w, y+h), (255, 0, 255), 2)
+        
+        #   cv.rectangle(imgray, (x, y), (x+w, y+h), (255, 0, 255), 2)
         rect = cv.minAreaRect(c)
         box = cv.boxPoints(rect)
         box = np.int0(box)
-        result.append(box) 
+
+        #   重算长宽
+        _x, _y = np.int0((box[2] + box[0])/2)
+        _w = np.linalg.norm(box[1] - box[0])
+        _h = np.linalg.norm(box[2] - box[1])
+        _vec1 = box[2] - [_x, _y]
+        _vec2 = [_w/2, _h/2]
+        _arccos = np.arccos(_vec1.dot(_vec2)/(np.linalg.norm(_vec1) * np.linalg.norm(_vec2)))
+        if (_w > 100 and _h > 100 and _w < 150 and _h < 150  ):
+            centerPoints.append([_x, _y])
+            cv.drawMarker(imgray, (_x, _y), (255,0,0))
+            cv.putText(imgray, "x: {0}, y: {1}, arccos: {2}".format(_x, _y, _arccos), (_x, _y), cv.FONT_HERSHEY_SIMPLEX, 1, (255,0,0))
+            result.append(box) 
 
 #   cv.imshow('Bounding Rectangle', imgray)
 cv.drawContours(imgray, result, -1, (255,0,0), 3)
 cv.imshow('contours', imgray)
-print("result contour", result)
+print("result contour", result, "centerPoints" ,centerPoints)
 
 # Iterate through each contour and compute the approx contour
 """
