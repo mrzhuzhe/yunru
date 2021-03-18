@@ -69,7 +69,6 @@ ret, thresh = cv.threshold(imgray, 50, 255, cv.THRESH_BINARY_INV)
 
 #cv.imshow('Approx Poly DP', thresh)
 
-
 contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
 #   矩  https://docs.opencv.org/3.4/dd/d49/tutorial_py_contour_features.html
@@ -91,7 +90,7 @@ for c in contours:
     #   过滤不合适的小点
     if (w > 100):
         
-        #   cv.rectangle(imgray, (x, y), (x+w, y+h), (255, 0, 255), 2)
+        #cv.rectangle(imgray, (x, y), (x+w, y+h), (255, 0, 255), 2)
         rect = cv.minAreaRect(c)
         box = cv.boxPoints(rect)
         box = np.int0(box)
@@ -113,6 +112,7 @@ for c in contours:
 cv.drawContours(imgray, result, -1, (255,0,0), 3)
 cv.imshow('contours', imgray)
 print("result contour", result, "centerPoints" ,centerPoints)
+
 
 # Iterate through each contour and compute the approx contour
 """
