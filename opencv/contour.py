@@ -18,7 +18,7 @@ import sys
 from matplotlib import pyplot as plt
 
 #   三通道
-img = cv.imread('test.jpeg')
+img = cv.imread('test7.jpeg')
 if img is None:
     sys.exit("Could not read the image.")
 
@@ -88,7 +88,7 @@ centerPoints = []
 for c in contours:
     x,y,w,h = cv.boundingRect(c)
     #   过滤不合适的小点
-    if (w > 100):
+    if (w < 100 and w > 5):
         
         #cv.rectangle(imgray, (x, y), (x+w, y+h), (255, 0, 255), 2)
         rect = cv.minAreaRect(c)
@@ -102,7 +102,7 @@ for c in contours:
         _vec1 = box[2] - [_x, _y]
         _vec2 = [_w/2, _h/2]
         _arccos = np.arccos(_vec1.dot(_vec2)/(np.linalg.norm(_vec1) * np.linalg.norm(_vec2)))
-        if (_w > 100 and _h > 100 and _w < 150 and _h < 150  ):
+        if (_w / _h < 2 and _w / _h > 0.5  ):
             centerPoints.append([_x, _y])
             cv.drawMarker(imgray, (_x, _y), (255,0,0))
             cv.putText(imgray, "x: {0}, y: {1}, arccos: {2}".format(_x, _y, _arccos), (_x, _y), cv.FONT_HERSHEY_SIMPLEX, 1, (255,0,0))
