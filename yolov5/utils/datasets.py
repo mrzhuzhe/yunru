@@ -289,7 +289,8 @@ class LoadStreams:  # multiple IP or RTSP cameras
             assert cap.isOpened(), f'Failed to open {s}'
             w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
             h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            self.fps[i] = max(cap.get(cv2.CAP_PROP_FPS) % 100, 0) or 10.0  # 30 FPS fallback
+            # TODO set FPS here
+            self.fps[i] = max(cap.get(cv2.CAP_PROP_FPS) % 100, 0) or 2.0  # 30 FPS fallback
             self.frames[i] = max(int(cap.get(cv2.CAP_PROP_FRAME_COUNT)), 0) or float('inf')  # infinite stream fallback
 
             _, self.imgs[i] = cap.read()  # guarantee first frame
@@ -340,7 +341,7 @@ class LoadStreams:  # multiple IP or RTSP cameras
         return self.sources, img, img0, None
 
     def __len__(self):
-        return 0  # 1E12 frames = 32 streams at 30 FPS for 30 years
+        return 0  # 1E12 frames = 32 streams at 30  for 30 years
 
 
 def img2label_paths(img_paths):
