@@ -10,7 +10,7 @@ from models.experimental import attempt_load
 from utils.datasets import LoadStreams, LoadImages
 from utils.general import check_img_size, check_requirements, check_imshow, non_max_suppression, apply_classifier, \
     scale_coords, xyxy2xywh, strip_optimizer, set_logging, increment_path, save_one_box
-from utils.plots import colors, plot_one_box
+from utils.plots import colors, plot_one_box, plot_string
 from utils.torch_utils  import select_device, load_classifier, time_synchronized
 
 
@@ -132,6 +132,7 @@ def detect(weights='ckpt/yolov5s-best.pt',  # model.pt path(s)
                         c = int(cls)  # integer class
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
                         plot_one_box(xyxy, im0, label=label, color=colors(c, True), line_thickness=line_thickness)
+                        plot_string(im0, det, names)
                         if save_crop:
                             save_one_box(xyxy, imc, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)
 
@@ -205,3 +206,4 @@ if __name__ == '__main__':
 
 
     #python detect.py --weights ckpt/yolov5s-best.pt --img 640 --conf 0.25 --source data/images
+    #python detect.py --weights ckpt/yolov5s-best.pt --img 640 --conf 0.25 --source 0  --nosave    

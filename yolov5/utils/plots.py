@@ -445,3 +445,28 @@ def plot_results(start=0, stop=0, bucket='', id=(), labels=(), save_dir=''):
 
     ax[1].legend()
     fig.savefig(Path(save_dir) / 'results.png', dpi=200)
+
+# plot string on image
+def plot_string(image, det, names):
+    s = ''
+    # Print results
+    for c in det[:, -1].unique():
+        n = (det[:, -1] == c).sum()  # detections per class
+        s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
+    # font
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    
+    # org
+    org = (50, 50)
+    
+    # fontScale
+    fontScale = 1
+    
+    # Blue color in BGR
+    color = (255, 0, 0)
+    
+    # Line thickness of 2 px
+    thickness = 2
+    
+    # Using cv2.putText() method
+    image = cv2.putText(image, s, org, font, fontScale, color, thickness, cv2.LINE_AA)
