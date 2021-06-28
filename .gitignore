@@ -14,3 +14,4 @@ opencv/imgs
 yolov5/runs/detect
 yolov5/ckpt
 yolov5/data
+opencv/result.jpg
