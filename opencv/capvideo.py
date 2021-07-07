@@ -1,6 +1,12 @@
 import numpy as np
 import cv2 as cv
 cap = cv.VideoCapture(0)
+
+cap.set(cv.CAP_PROP_FRAME_WIDTH, 1920)
+cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1920)
+
+cap.set(cv.CAP_PROP_FOCUS, 255)  
+
 # Define the codec and create VideoWriter object
 fourcc = cv.VideoWriter_fourcc(*'mp4v')
 
@@ -13,7 +19,7 @@ while cap.isOpened():
     if not ret:
         print("Can't receive frame (stream end?). Exiting ...")
         break
-    frame = cv.flip(frame, 0)
+    #frame = cv.flip(frame, 0)
     # write the flipped frame
     #out.write(frame)
     cv.imshow('frame', frame)

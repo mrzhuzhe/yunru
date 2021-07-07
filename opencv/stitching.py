@@ -32,7 +32,8 @@ parser.add_argument('--output', default = 'result.jpg',
 #parser.add_argument('img', nargs='+', help = 'input images')
 
 __doc__ += '\n' + parser.format_help()
-__path = "./stitching/"
+#__path = "./stitching/"
+__path = "./imgs/wheel/"
 
 def main():
     args = parser.parse_args()

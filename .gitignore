@@ -10,6 +10,8 @@ realsense/manual/zz_test_panda.bag
 realsense/manual/zz_test_panda/
 opencv/test.jpeg
 opencv/imgs
+opencv/out
+
 
 yolov5/runs/detect
 yolov5/ckpt
