@@ -1,9 +1,13 @@
 import numpy as np
 import cv2 as cv
+import time
+
+ts = time.time()
+
 cap = cv.VideoCapture(0)
 
-cap.set(cv.CAP_PROP_FRAME_WIDTH, 1920)
-cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1920)
+cap.set(cv.CAP_PROP_FRAME_WIDTH, 3840)
+cap.set(cv.CAP_PROP_FRAME_HEIGHT, 2880)
 
 cap.set(cv.CAP_PROP_FOCUS, 255)  
 
@@ -25,7 +29,7 @@ while cap.isOpened():
     cv.imshow('frame', frame)
 
     if cv.waitKey(1) == ord('r'):
-        _name = output + str(count)
+        _name = output + str(count) + "-" + str(ts) 
         cv.imwrite(_name + ".jpg", frame)
         print(_name, "saved")
         count += 1
