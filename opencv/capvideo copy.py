@@ -2,25 +2,18 @@ import numpy as np
 import cv2 as cv
 cap = cv.VideoCapture(0)
 
-cap.set(cv.CAP_PROP_FRAME_WIDTH, 1920)
-cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1080)
+#cap.set(cv.CAP_PROP_FRAME_WIDTH, 1920)
+#cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1920)
 
-cap.set(cv.CAP_PROP_FOCUS, 125)  
-
-fps = cap.get(cv.CAP_PROP_FPS)
-print(fps)
+cap.set(cv.CAP_PROP_FOCUS, 155)  
 
 # Define the codec and create VideoWriter object
 fourcc = cv.VideoWriter_fourcc(*'mp4v')
 
 output = "./out/"
 
-#out = cv.VideoWriter('./out/output.mp4', fqourcc, 2.0, (640,  480))
-_record = False 
-
+#out = cv.VideoWriter('./out/output.mp4', fourcc, 2.0, (640,  480))
 count = 0
-_frameCount = 0
-
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -32,24 +25,10 @@ while cap.isOpened():
     cv.imshow('frame', frame)
 
     if cv.waitKey(1) == ord('r'):
-        _record = True
-        print("开始录制")
-    
-    if cv.waitKey(1) == ord('e'):
-        _record = False
-        print("停止录制")
-
-    
-    #if cv.waitKey(1) == ord('p'):
-        
-
-    if _record and _frameCount % 30 == 0: 
-        _name = output + str(count)             
+        _name = output + str(count)
         cv.imwrite(_name + ".jpg", frame)
-        print(_name, "已保存")
+        print(_name, "saved")
         count += 1
-    
-    _frameCount += 1
 
     if cv.waitKey(1) == ord('q'):
         break
