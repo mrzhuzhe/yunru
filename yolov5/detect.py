@@ -15,7 +15,7 @@ from utils.torch_utils  import select_device, load_classifier, time_synchronized
 
 
 @torch.no_grad()
-def detect(weights='ckpt/yolov5s-best.pt',  # model.pt path(s)
+def detect(weights='ckpt/quan-yolo.pt',  # model.pt path(s)
            source='data/images',  # file/dir/URL/glob, 0 for webcam
            imgsz=640,  # inference size (pixels)
            conf_thres=0.25,  # confidence threshold
@@ -206,4 +206,4 @@ if __name__ == '__main__':
 
 
     #python detect.py --weights ckpt/yolov5s-best.pt --img 640 --conf 0.25 --source data/images
-    #python detect.py --weights ckpt/yolov5s-best.pt --img 640 --conf 0.25 --source 0  --nosave    
+    #python detect.py --weights ckpt/quan-yolo.pt --img 1024 --conf 0.25 --source 0  --nosave    
